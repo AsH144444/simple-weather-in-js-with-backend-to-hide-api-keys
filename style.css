@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  padding: 15px 3%;
+  background-color: #87cefa;
+  gap: 20px;
+}
+
+.in-btn {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+#ti {
+  color: white;
+  font-size: clamp(24px, 4vw, 40px);
+  margin-left: 0;
+}
+
+#input {
+  width: clamp(180px, 40vw, 600px);
+  height: 35px;
+  padding: 0 10px;
+  border-radius: 7px 0 0 7px;
+  border: none;
+  outline: none;
+}
+
+#sbtn {
+  height: 35px;
+  width: clamp(60px, 8vw, 90px);
+  border: none;
+  border-radius: 0 7px 7px 0;
+  cursor: pointer;
+  background-color: #053150;
+  color: white;
+}
