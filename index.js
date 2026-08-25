@@ -1,5 +1,3 @@
-const apiKey = import.meta.env.VITE_API_KEY;
-
 const input = document.getElementById("input");
 
 input.addEventListener("keydown", (event) => {
@@ -10,20 +8,16 @@ input.addEventListener("keydown", (event) => {
 
 function search() {
   const name = input.value;
+  input.value = "";
 
-  console.log(name);
-
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${apiKey}&units=metric`
-  )
+fetch(`http://localhost:3000/weather?city=${encodeURIComponent(name)}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-
-      console.log("Temperature:", data.main.temp);
-      console.log("Weather:", data.weather[0].description);
+      if (data.error) {
+        console.log(data.error);
+        return;
+      }
+      
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => console.log(error));
 }
