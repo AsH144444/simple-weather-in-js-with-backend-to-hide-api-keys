@@ -28,7 +28,7 @@ fetch(`http://localhost:3000/weather?city=${encodeURIComponent(name)}`)
         return data;
     })
     .then((data) => {
-        console.log("Weather:", data);
+        
         show(data)
     })
     .catch((error) => {
@@ -44,22 +44,27 @@ fetch(`http://localhost:3000/weather?city=${encodeURIComponent(name)}`)
     card.className = "card";
     card.innerHTML = `
         <div class="city-name">${data.name}</div>
-        <img class="condition-icon" src="sun.png" alt="book">
+  <img
+    class="condition-icon"
+    src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"
+    alt="${data.weather[0].description}"
+>
         <div class="temp">${Math.round(data.main.temp)}°C</div>
-        <div class="condition-text">${description}</div>
+        <div class="condition-text">${data.weather[0].description}</div>
         <div class="stats">
             <div class="stat">
-                <img src="humidity.png" alt="Humidity">
+                <img src="./images/humidity.png" alt="Humidity">
                 <span class="value">${data.main.humidity}%</span>
                 <span class="label">Humidity</span>
             </div>
             <div class="stat">
-                <img src="wind.png" alt="Wind">
+                <img src="./images/wind.png" alt="Wind">
                 <span class="value">${data.wind.speed} m/s</span>
                 <span class="label">Wind</span>
             </div>
         </div>
     `;
+    console.log(data.weather.description)
  
     display.appendChild(card);
 }

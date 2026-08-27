@@ -1,47 +1,215 @@
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+}
+
 
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 80px;
-  padding: 15px 3%;
-  background-color: #87cefa;
-  gap: 20px;
-}
-
-.in-btn {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
+    padding: 15px 5%;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    gap: 20px;
 }
 
 #ti {
-  color: white;
-  font-size: clamp(24px, 4vw, 40px);
-  margin-left: 0;
+    color: white;
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Search area */
+.in-btn {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 #input {
-  width: clamp(180px, 40vw, 600px);
-  height: 35px;
-  padding: 0 10px;
-  border-radius: 7px 0 0 7px;
-  border: none;
-  outline: none;
+    width: clamp(180px, 40vw, 500px);
+    height: 42px;
+    padding: 0 15px;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: white;
+    color: #333;
+}
+
+#input::placeholder {
+    color: #888;
 }
 
 #sbtn {
-  height: 35px;
-  width: clamp(60px, 8vw, 90px);
-  border: none;
-  border-radius: 0 7px 7px 0;
-  cursor: pointer;
-  background-color: #053150;
-  color: white;
+    height: 42px;
+    width: clamp(80px, 10vw, 120px);
+    border: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    background-color: #053150;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#sbtn:hover {
+    background-color: #0b4f7c;
+    transform: translateY(-1px);
+}
+
+
+#display {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+
+.card {
+    width: min(90%, 420px);
+    padding: 35px 25px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+    animation: cardAppear 0.5s ease;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.city-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+.condition-icon {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 10px auto;
+}
+
+
+.temp {
+    font-size: 55px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+
+.condition-text {
+    font-size: 20px;
+    text-transform: capitalize;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 25px;
+}
+
+.stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .nav {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .in-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #input {
+        width: 100%;
+    }
+
+    #display {
+        min-height: calc(100vh - 150px);
+        padding: 25px 15px;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    .city-name {
+        font-size: 28px;
+    }
+
+    .temp {
+        font-size: 48px;
+    }
+
+    .condition-icon {
+        width: 100px;
+        height: 100px;
+    }
 }
